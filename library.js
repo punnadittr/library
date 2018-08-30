@@ -9,15 +9,15 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-};
+}
 
 Book.prototype.addToLibrary = function() {
     myLibrary.push(this);
-}
+};
 
 Book.prototype.toggleReadStatus = function() {
     this.read = this.read == true ? false : true;
-}
+};
 
 function render() {
     clearTable();
@@ -38,11 +38,13 @@ function render() {
         title.innerHTML = myLibrary[i].title;
         author.innerHTML = myLibrary[i].author;
         pages.innerHTML = myLibrary[i].pages;
-        if (myLibrary[i].read == true) {
+
+        if ( myLibrary[i].read == true ) {
             read.innerHTML = `<i class="fas fa-check" data-index="${i}"></i>`;
         } else {
             read.innerHTML = `<i class="fas fa-times" data-index="${i}"></i>`;
         }
+
         del.innerHTML = '<button class="btn-sm btn-danger"/>Delete</button/>'
         del.dataset.index = i;
 
@@ -60,7 +62,7 @@ icons = document.getElementsByClassName('fas');
 render();
 
 function addEventToIcons() {
-    if ( icons != undefined) {
+    if ( icons != undefined ) {
         for (let j = 0; j < icons.length; j++) {
             icons[j].addEventListener('click', () => {
                 index = parseInt(icons[j].dataset.index);
@@ -80,7 +82,7 @@ function clearTable() {
 }
 
 function addEventToDeleteBtn () {
-    if( deleteBtns != undefined) {
+    if ( deleteBtns != undefined ) {
         for (let k = 0; k < deleteBtns.length; k++) {    
             deleteBtns[k].addEventListener('click', () => {
                 index = parseInt(deleteBtns[k].parentElement.dataset.index, 10);
