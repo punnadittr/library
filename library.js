@@ -4,20 +4,20 @@ const tableBody = document.getElementById('table-body');
 const submitBtn = document.getElementById('submit');
 var icons;
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    }
+    addToLibrary() {
+        myLibrary.push(this);
+    }
+    toggleReadStatus() {
+        this.read = this.read == true ? false : true;
+    }
 }
-
-Book.prototype.addToLibrary = function() {
-    myLibrary.push(this);
-};
-
-Book.prototype.toggleReadStatus = function() {
-    this.read = this.read == true ? false : true;
-};
 
 function render() {
     clearTable();
